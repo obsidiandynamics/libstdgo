@@ -17,12 +17,12 @@
 * `scribe`: **logging façade that features logger mocking and assertions**, and comes with **ready-to-go bindings** for —
   - The built-in `os.stdout` function
   - The built-in `log.Printf` logger
-  - Glog
-  - Log15
-  - Logrus
-  - Seelog
-  - Zap
-  - Overlog (a thread-safe logger for debugging concurrent apps)
+  - [Glog](https://github.com/golang/glog)
+  - [Log15](https://github.com/inconshreveable/log15)
+  - [Logrus](https://github.com/sirupsen/logrus)
+  - [Seelog](https://github.com/cihub/seelog)
+  - [Zap](https://github.com/uber-go/zap)
+  - Overlog — a thread-safe logger for debugging concurrent apps, built into Scribe
 * `check`: **assertion utilities**
   - `ThatPanicsAsExpected(func)`: asserting panic expectations
   - `Wait(t, timeout).UntilAsserted(assertion)`: time-based assertions
