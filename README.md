@@ -28,7 +28,7 @@
   - `Wait(t, timeout).UntilAsserted(assertion)`: time-based assertions
   - `TestCapture`: capture of `testing.T` failures (for self-testing of assertion libraries)
   - `Intercept(t).Mutate(...)`: enrichment of assertion failure messages
-* `commander`: **schema-less command-line argument parsing**
+* `commander`: **schemaless command-line argument parsing**
   - `Parse(os.Args).Mappify`
 * `fault`: **fault injection**
 * `arity`: **extraction of optional arguments to variadic functions**

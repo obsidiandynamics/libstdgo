@@ -72,7 +72,7 @@ func (parts Parts) Mappify() PartsMap {
 	return partsMap
 }
 
-// Parse processes the given cmdArgs into a Parts slice. No error is returned as parsing is schema-less; the parser
+// Parse processes the given cmdArgs into a Parts slice. No error is returned as parsing is schemaless; the parser
 // extracts all flags, switches and free-form values that may be present.
 func Parse(cmdArgs []string) Parts {
 	len := len(cmdArgs)
