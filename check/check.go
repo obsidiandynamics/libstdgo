@@ -197,7 +197,10 @@ func (ts *timesert) untilAsserted(a Assertion) bool {
 			}
 			return false
 		case <-intervalTicker.C:
+			nop()
 		}
 		c.Reset()
 	}
 }
+
+func nop() {}

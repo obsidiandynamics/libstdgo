@@ -37,6 +37,40 @@ func TestScoreboardDrainInDeepSleep(t *testing.T) {
 	assert.Equal(t, int64(0), res)
 }
 
+func TestScoreboardAwaitWithTwoWaiters(t *testing.T) {
+	b := NewScoreboard(1)
+	b.Set(defKey, 1)
+	wg := sync.WaitGroup{}
+	const waiters = 2
+	wg.Add(waiters)
+
+	waitedAtLeastOnce := sync.WaitGroup{}
+	waitedAtLeastOnce.Add(waiters)
+	for i := 0; i < waiters; i++ {
+		go func() {
+			waited := false
+			res := b.Await(defKey, func(value int64) bool {
+				if !waited {
+					waited = true
+					waitedAtLeastOnce.Done()
+				}
+				return value == 0
+			}, Indefinitely, 1*time.Nanosecond)
+			assert.Equal(t, int64(0), res)
+			wg.Done()
+		}()
+	}
+
+	waitedAtLeastOnce.Wait()
+	res := b.Dec(defKey)
+	assert.Equal(t, int64(0), res)
+	wg.Wait()
+
+	// Tests that we can repeatedly set the value without anyone awaiting it.
+	b.Set(defKey, 0)
+	b.Set(defKey, 0)
+}
+
 func TestScoreboardAwaitCtxCancel(t *testing.T) {
 	b := NewScoreboard()
 	b.Set(defKey, 1)

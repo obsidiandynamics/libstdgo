@@ -27,6 +27,39 @@ func TestAtomicCounterDrainInDeepSleep(t *testing.T) {
 	assert.Equal(t, int64(0), res)
 }
 
+func TestAtomicCounterAwaitWithTwoWaiters(t *testing.T) {
+	c := NewAtomicCounter(1)
+	wg := sync.WaitGroup{}
+	const waiters = 2
+	wg.Add(waiters)
+
+	waitedAtLeastOnce := sync.WaitGroup{}
+	waitedAtLeastOnce.Add(waiters)
+	for i := 0; i < waiters; i++ {
+		go func() {
+			waited := false
+			res := c.Await(func(value int64) bool {
+				if !waited {
+					waited = true
+					waitedAtLeastOnce.Done()
+				}
+				return value == 0
+			}, Indefinitely, 1*time.Nanosecond)
+			assert.Equal(t, int64(0), res)
+			wg.Done()
+		}()
+	}
+
+	waitedAtLeastOnce.Wait()
+	res := c.Dec()
+	assert.Equal(t, int64(0), res)
+	wg.Wait()
+
+	// Tests that we can repeatedly set the value without anyone awaiting it.
+	c.Set(0)
+	c.Set(0)
+}
+
 func TestAtomicCounterAwaitCtxInDeepSleep(t *testing.T) {
 	c := NewAtomicCounter(1)
 	go func() {

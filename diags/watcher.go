@@ -3,6 +3,7 @@ package diags
 import (
 	"time"
 
+	"github.com/obsidiandynamics/libstdgo/concurrent"
 	"github.com/obsidiandynamics/libstdgo/scribe"
 )
 
@@ -41,6 +42,7 @@ func Watch(operation string, duration time.Duration, trigger Trigger) *Watcher {
 		case <-timer.C:
 			trigger(w)
 		case <-w.done:
+			concurrent.Nop()
 		}
 	}()
 

@@ -24,12 +24,7 @@ func newShard() *shard {
 }
 
 func (s *shard) add(key string, amount int64) int64 {
-	defer func() {
-		select {
-		case s.notify <- 0:
-		default:
-		}
-	}()
+	defer s.notifyUpdate()
 	s.lock.Lock()
 	defer s.lock.Unlock()
 	updated := s.counters[key] + amount
@@ -42,18 +37,22 @@ func (s *shard) add(key string, amount int64) int64 {
 }
 
 func (s *shard) set(key string, amount int64) {
-	defer func() {
-		select {
-		case s.notify <- 0:
-		default:
-		}
-	}()
+	defer s.notifyUpdate()
 	s.lock.Lock()
 	defer s.lock.Unlock()
 	if amount == 0 {
 		delete(s.counters, key)
 	} else {
 		s.counters[key] = amount
+	}
+}
+
+func (s *shard) notifyUpdate() {
+	select {
+	case s.notify <- 0:
+		Nop()
+	default:
+		Nop()
 	}
 }
 
@@ -95,7 +94,9 @@ func (s *shard) await(ctx context.Context, key string, cond I64Condition, interv
 		case <-ctx.Done():
 			return value
 		case <-s.notify:
+			Nop()
 		case <-sleepTicker.C:
+			Nop()
 		}
 	}
 }

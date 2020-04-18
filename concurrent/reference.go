@@ -50,7 +50,9 @@ func (v *atomicReference) Set(referent interface{}) {
 	v.value.Store(pointer{referent})
 	select {
 	case v.notify <- 0:
+		Nop()
 	default:
+		Nop()
 	}
 }
 
@@ -109,7 +111,9 @@ func (v *atomicReference) AwaitCtx(ctx context.Context, cond RefCondition, inter
 		case <-ctx.Done():
 			return referent
 		case <-v.notify:
+			Nop()
 		case <-sleepTicker.C:
+			Nop()
 		}
 	}
 }

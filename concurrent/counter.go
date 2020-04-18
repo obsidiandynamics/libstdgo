@@ -79,7 +79,9 @@ func (c *atomicCounter) Set(amount int64) {
 func (c *atomicCounter) notifyUpdate() {
 	select {
 	case c.notify <- 0:
+		Nop()
 	default:
+		Nop()
 	}
 }
 
@@ -134,7 +136,9 @@ func (c *atomicCounter) AwaitCtx(ctx context.Context, cond I64Condition, interva
 		case <-ctx.Done():
 			return value
 		case <-c.notify:
+			Nop()
 		case <-sleepTicker.C:
+			Nop()
 		}
 	}
 }
