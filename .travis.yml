@@ -8,7 +8,7 @@ go:
   - 1.14.x
 
 before_install:
-  - go get -d ./...
+  - go get -u -v all
 
 script:
   - make
