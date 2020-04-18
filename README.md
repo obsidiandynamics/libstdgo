@@ -13,7 +13,7 @@
   - `AtomicCounter`: atomic `int64` counter
   - `Scoreboard`: a space-efficient map of `string`-keyed `int64` counters
   - `AtomicReference` an atomic reference that allows for `nil` pointers
-  - `Deadline` - conditional running of tasks within a deadline
+  - `Deadline` - conditional running of tasks that are bound to a deadline
 * `scribe`: **logging façade that features logger mocking and assertions**, and comes with **ready-to-go bindings** for —
   - The built-in `os.stdout` function
   - The built-in `log.Printf` logger
