@@ -4,6 +4,8 @@ import (
 	"bytes"
 	"fmt"
 	"log"
+
+	"github.com/obsidiandynamics/libstdgo/arity"
 )
 
 /*
@@ -31,10 +33,18 @@ func BindFmt() LoggerFactories {
 	}
 }
 
-// BindLogPrintf creates a pass-through binding for log.Printf().
-func BindLogPrintf() LoggerFactories {
+// BindLogPrintf creates a pass-through binding for log.Printf(). An optional Logger instance can be specified;
+// if omitted, the standard logger will be used.
+func BindLogPrintf(logger ...*log.Logger) LoggerFactories {
+	l := arity.SoleUntyped(nil, logger)
+	var printf Logger
+	if l != nil {
+		printf = l.(*log.Logger).Printf
+	} else {
+		printf = log.Printf
+	}
 	return LoggerFactories{
-		All: Fac(log.Printf),
+		All: Fac(printf),
 	}
 }
 

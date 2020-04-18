@@ -1,8 +1,10 @@
 /*
-Package scribe represents a functional abstraction for unifying loggers. It is not a façade (à la SLF4J), in
-that it does not transform from one API to another. Instead, Scribe uses function pointers to expose a standard
-printf-style API to the application. In that sense, Scribe is more of a mechanism for standardising and organising
-logger implementations. It works with any logger that exposes a printf-style contract.
+Package scribe represents a functional abstraction for unifying loggers. It's much more than a shim-like façade
+(à la SLF4J), in that it does not have to transform from one API to another. Instead, Scribe uses function
+pointers to expose a standard printf-style API to the application where this is possible (where the underlying
+logger provides a printf-style interface out of the box). In that sense, Scribe is more of a mechanism for
+standardising and organising logger implementations. Where the underlying logger does not expose a printf-style
+contract, Scribe can be used with a shim binding.
 
 Scribe supports log enrichment, allowing the user to provide additional contextual
 metadata. (This is called a Scene.) It achieves the same goal as a traditional façade, without creating a layer

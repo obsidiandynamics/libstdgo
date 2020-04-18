@@ -1,7 +1,9 @@
 package scribe
 
 import (
+	"bytes"
 	"fmt"
+	"log"
 	"testing"
 
 	"github.com/obsidiandynamics/libstdgo/check"
@@ -18,6 +20,16 @@ func TestStandardBinding(t *testing.T) {
 	l := New(StandardBinding())
 	l.SetEnabled(Debug)
 	l.D()("Debugging %s", "something")
+}
+
+func TestStandardBinding_customWriter(t *testing.T) {
+	buffer := bytes.Buffer{}
+	logger := log.New(&buffer, "", log.Llongfile)
+	l := New(BindLogPrintf(logger))
+	l.SetEnabled(Debug)
+	l.D()("Debugging %s", "something")
+	assert.Contains(t, buffer.String(), "Debugging something")
+	assert.Contains(t, buffer.String(), "bindings_test.go")
 }
 
 func TestAppendScene(t *testing.T) {
