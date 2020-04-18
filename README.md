@@ -2,13 +2,13 @@
 ===
 ![Go version](https://img.shields.io/github/go-mod/go-version/obsidiandynamics/libstdgo)
 [![Build](https://travis-ci.org/obsidiandynamics/libstdgo.svg?branch=master) ](https://travis-ci.org/obsidiandynamics/libstdgo#)
-![Release](https://img.shields.io/github/v/release/obsidiandynamics/libstdgo?color=magenta)
+![Release](https://img.shields.io/github/v/release/obsidiandynamics/libstdgo?color=ff69b4)
 [![Codecov](https://codecov.io/gh/obsidiandynamics/libstdgo/branch/master/graph/badge.svg)](https://codecov.io/gh/obsidiandynamics/libstdgo)
 [![Go Report Card](https://goreportcard.com/badge/github.com/obsidiandynamics/libstdgo)](https://goreportcard.com/report/github.com/obsidiandynamics/libstdgo)
 [![Total alerts](https://img.shields.io/lgtm/alerts/g/obsidiandynamics/libstdgo.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/obsidiandynamics/libstdgo/alerts/)
 [![GoDoc Reference](https://img.shields.io/badge/docs-GoDoc-blue.svg)](https://pkg.go.dev/github.com/obsidiandynamics/libstdgo?tab=subdirectories)
 
-Standard libraries for Go, taking care of things like:
+**Standard libraries for Go**, taking care of things like:
 * `concurrent`: **concurrent and thread-safe data structures** —
   - `AtomicCounter`: atomic `int64` counter
   - `Scoreboard`: a space-efficient map of `string`-keyed `int64` counters
