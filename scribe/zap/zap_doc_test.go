@@ -3,8 +3,8 @@ package zap
 import (
 	"testing"
 
-	"github.com/obsidiandynamics/stdlibgo/check"
-	"github.com/obsidiandynamics/stdlibgo/scribe"
+	"github.com/obsidiandynamics/libstdgo/check"
+	"github.com/obsidiandynamics/libstdgo/scribe"
 	"go.uber.org/zap"
 )
 

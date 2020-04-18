@@ -3,7 +3,7 @@ package diags
 import (
 	"time"
 
-	"github.com/obsidiandynamics/stdlibgo/scribe"
+	"github.com/obsidiandynamics/libstdgo/scribe"
 )
 
 // Watcher contains a timer that fires if an operation fails to complete within a deadline.

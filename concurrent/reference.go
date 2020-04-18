@@ -6,7 +6,7 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/obsidiandynamics/stdlibgo/arity"
+	"github.com/obsidiandynamics/libstdgo/arity"
 )
 
 // AtomicReference encapsulates a pointer that may updated atomically. Unlike its sync/atomic.Value counterpart,

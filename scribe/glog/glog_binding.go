@@ -3,7 +3,7 @@ package glog
 
 import (
 	"github.com/golang/glog"
-	"github.com/obsidiandynamics/stdlibgo/scribe"
+	"github.com/obsidiandynamics/libstdgo/scribe"
 )
 
 // Bind creates a binding for Glog.

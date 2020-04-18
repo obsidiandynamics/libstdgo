@@ -1,4 +1,4 @@
-module github.com/obsidiandynamics/stdlibgo
+module github.com/obsidiandynamics/libstdgo
 
 go 1.14
 

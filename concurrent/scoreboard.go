@@ -7,7 +7,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/obsidiandynamics/stdlibgo/arity"
+	"github.com/obsidiandynamics/libstdgo/arity"
 )
 
 type shard struct {

@@ -5,8 +5,8 @@ import (
 	"testing"
 	"time"
 
+	"github.com/obsidiandynamics/libstdgo/check"
 	"github.com/stretchr/testify/assert"
-	"github.com/obsidiandynamics/stdlibgo/check"
 )
 
 func TestNewAtomicReference_withInitial(t *testing.T) {

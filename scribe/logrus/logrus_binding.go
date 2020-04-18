@@ -4,8 +4,8 @@ package logrus
 import (
 	"context"
 
-	"github.com/obsidiandynamics/stdlibgo/arity"
-	"github.com/obsidiandynamics/stdlibgo/scribe"
+	"github.com/obsidiandynamics/libstdgo/arity"
+	"github.com/obsidiandynamics/libstdgo/scribe"
 	"github.com/sirupsen/logrus"
 	lr "github.com/sirupsen/logrus"
 )

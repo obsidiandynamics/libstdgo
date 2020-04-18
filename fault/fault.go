@@ -4,7 +4,7 @@ package fault
 import (
 	"math/rand"
 
-	"github.com/obsidiandynamics/stdlibgo/concurrent"
+	"github.com/obsidiandynamics/libstdgo/concurrent"
 )
 
 // Spec outlines the conditions for a fault, comprising a contingency, as well as an error that is reported when said contingency arises.

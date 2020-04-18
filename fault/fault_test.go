@@ -4,8 +4,8 @@ import (
 	"testing"
 	"time"
 
+	"github.com/obsidiandynamics/libstdgo/check"
 	"github.com/stretchr/testify/assert"
-	"github.com/obsidiandynamics/stdlibgo/check"
 )
 
 func TestNone(t *testing.T) {

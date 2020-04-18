@@ -4,7 +4,7 @@ import (
 	"os"
 	"strings"
 
-	"github.com/obsidiandynamics/stdlibgo/commander"
+	"github.com/obsidiandynamics/libstdgo/commander"
 )
 
 // TestSkipper is the API contract for testing.T.Skip().

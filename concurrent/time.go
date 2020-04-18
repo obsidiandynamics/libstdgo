@@ -4,7 +4,7 @@ import (
 	"math"
 	"time"
 
-	"github.com/obsidiandynamics/stdlibgo/arity"
+	"github.com/obsidiandynamics/libstdgo/arity"
 )
 
 // Indefinitely is a constant that represents the longest allowable duration (approx. 290 years).

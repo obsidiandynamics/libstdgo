@@ -4,7 +4,7 @@ package zap
 import (
 	"fmt"
 
-	"github.com/obsidiandynamics/stdlibgo/scribe"
+	"github.com/obsidiandynamics/libstdgo/scribe"
 	"go.uber.org/zap"
 )
 

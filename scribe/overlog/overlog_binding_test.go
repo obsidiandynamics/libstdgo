@@ -4,9 +4,9 @@ import (
 	"bytes"
 	"testing"
 
+	"github.com/obsidiandynamics/libstdgo/check"
+	"github.com/obsidiandynamics/libstdgo/scribe"
 	"github.com/stretchr/testify/assert"
-	"github.com/obsidiandynamics/stdlibgo/check"
-	"github.com/obsidiandynamics/stdlibgo/scribe"
 )
 
 func TestLogLevels(t *testing.T) {

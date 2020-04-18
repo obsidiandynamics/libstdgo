@@ -5,10 +5,10 @@ import (
 	"testing"
 	"time"
 
+	"github.com/obsidiandynamics/libstdgo/check"
+	"github.com/obsidiandynamics/libstdgo/scribe"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
-	"github.com/obsidiandynamics/stdlibgo/check"
-	"github.com/obsidiandynamics/stdlibgo/scribe"
 )
 
 func TestPrintfAndRaw(t *testing.T) {

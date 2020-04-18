@@ -4,10 +4,10 @@ import (
 	"testing"
 	"time"
 
+	"github.com/obsidiandynamics/libstdgo/check"
+	"github.com/obsidiandynamics/libstdgo/concurrent"
+	"github.com/obsidiandynamics/libstdgo/scribe"
 	"github.com/stretchr/testify/assert"
-	"github.com/obsidiandynamics/stdlibgo/check"
-	"github.com/obsidiandynamics/stdlibgo/concurrent"
-	"github.com/obsidiandynamics/stdlibgo/scribe"
 )
 
 func TestWatch_ended(t *testing.T) {

@@ -6,9 +6,9 @@ import (
 	"testing"
 
 	"github.com/cihub/seelog"
+	"github.com/obsidiandynamics/libstdgo/check"
+	"github.com/obsidiandynamics/libstdgo/scribe"
 	"github.com/stretchr/testify/assert"
-	"github.com/obsidiandynamics/stdlibgo/check"
-	"github.com/obsidiandynamics/stdlibgo/scribe"
 )
 
 func createBindingForWriter(w io.Writer) Binding {

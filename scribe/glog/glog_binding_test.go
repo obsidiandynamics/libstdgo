@@ -3,7 +3,7 @@ package glog
 import (
 	"testing"
 
-	"github.com/obsidiandynamics/stdlibgo/scribe"
+	"github.com/obsidiandynamics/libstdgo/scribe"
 )
 
 // Just for coverage and to make sure that nothing panics, as Glog does not allow us to assert

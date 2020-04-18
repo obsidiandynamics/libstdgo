@@ -4,8 +4,8 @@ import (
 	"testing"
 
 	"github.com/inconshreveable/log15"
-	"github.com/obsidiandynamics/stdlibgo/check"
-	"github.com/obsidiandynamics/stdlibgo/scribe"
+	"github.com/obsidiandynamics/libstdgo/check"
+	"github.com/obsidiandynamics/libstdgo/scribe"
 )
 
 func Example() {

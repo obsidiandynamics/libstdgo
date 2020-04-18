@@ -6,7 +6,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/obsidiandynamics/stdlibgo/check"
+	"github.com/obsidiandynamics/libstdgo/check"
 )
 
 // MockScribe provides a facility for mocking a Scribe, capturing log calls for subsequent inspection, filtering and assertions.

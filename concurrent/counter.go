@@ -6,7 +6,7 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/obsidiandynamics/stdlibgo/arity"
+	"github.com/obsidiandynamics/libstdgo/arity"
 )
 
 // AtomicCounter encapsulates an int64 value that may updated atomically.

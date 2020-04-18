@@ -3,8 +3,8 @@ package logrus
 import (
 	"testing"
 
-	"github.com/obsidiandynamics/stdlibgo/check"
-	"github.com/obsidiandynamics/stdlibgo/scribe"
+	"github.com/obsidiandynamics/libstdgo/check"
+	"github.com/obsidiandynamics/libstdgo/scribe"
 	"github.com/sirupsen/logrus"
 )
 

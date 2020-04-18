@@ -12,8 +12,8 @@ import (
 	"sync"
 	"time"
 
-	"github.com/obsidiandynamics/stdlibgo/arity"
-	"github.com/obsidiandynamics/stdlibgo/scribe"
+	"github.com/obsidiandynamics/libstdgo/arity"
+	"github.com/obsidiandynamics/libstdgo/scribe"
 )
 
 // Overlog is a synchronized logger backed by an io.Writer, suitable for use in concurrent applications

@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"testing"
 
+	"github.com/obsidiandynamics/libstdgo/check"
 	"github.com/stretchr/testify/assert"
-	"github.com/obsidiandynamics/stdlibgo/check"
 )
 
 func TestBindFmtPrintf(t *testing.T) {

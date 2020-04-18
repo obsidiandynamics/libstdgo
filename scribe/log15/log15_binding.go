@@ -9,8 +9,8 @@ import (
 
 	"github.com/go-stack/stack"
 	"github.com/inconshreveable/log15"
-	"github.com/obsidiandynamics/stdlibgo/arity"
-	"github.com/obsidiandynamics/stdlibgo/scribe"
+	"github.com/obsidiandynamics/libstdgo/arity"
+	"github.com/obsidiandynamics/libstdgo/scribe"
 )
 
 // Binding captures the state of the binding, including the underlying logger instance. The
