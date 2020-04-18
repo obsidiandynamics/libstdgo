@@ -1,4 +1,4 @@
-`libstdgo`
+<img src="https://raw.githubusercontent.com/wiki/obsidiandynamics/libstdgo/images/libstdgo-logo.png" width="90px" alt="logo"/> `libstdgo`
 ===
 ![Go version](https://img.shields.io/github/go-mod/go-version/obsidiandynamics/libstdgo)
 [![Build](https://travis-ci.org/obsidiandynamics/libstdgo.svg?branch=master) ](https://travis-ci.org/obsidiandynamics/libstdgo#)
