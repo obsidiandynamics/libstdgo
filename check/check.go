@@ -32,8 +32,8 @@ func PrintStack(depth int) string {
 	return str.String()
 }
 
-// ErrFault is a pre-canned error, useful in simulating faults.
-var ErrFault = errors.New("Simulated")
+// ErrSimulated is a pre-canned error, useful in simulating faults.
+var ErrSimulated = errors.New("simulated")
 
 // PanicAssertion checks a given panic cause. It is used by ThatPanicsAsExpected.
 type PanicAssertion func(t Tester, cause interface{})
@@ -124,7 +124,7 @@ func Wait(t Tester, timeout time.Duration, interval ...time.Duration) Timesert {
 	checkInterval := DefaultWaitCheckInterval
 	switch {
 	case len(interval) > 1:
-		panic(fmt.Errorf("Argument list too long"))
+		panic(fmt.Errorf("argument list too long"))
 	case len(interval) == 1:
 		checkInterval = interval[0]
 	}

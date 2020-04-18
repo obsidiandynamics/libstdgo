@@ -51,7 +51,7 @@ func TestParseLevelName(t *testing.T) {
 		{in: "All", wantSpec: Levels[All], wantError: ""},
 		{in: "Trace", wantSpec: Levels[Trace], wantError: ""},
 		{in: "Off", wantSpec: Levels[Off], wantError: ""},
-		{in: "Foo", wantSpec: LevelSpec{}, wantError: "No level specification for name 'Foo'"},
+		{in: "Foo", wantSpec: LevelSpec{}, wantError: "no level specification for name 'Foo'"},
 	}
 
 	for _, c := range cases {
@@ -170,14 +170,14 @@ func assertNoCaptures(t *testing.T, captures ...logCapture) {
 
 func TestMissingLevel(t *testing.T) {
 	l := New(LoggerFactories{All: nopFac})
-	check.ThatPanicsAsExpected(t, check.ErrorWithValue("Missing logger factory for level <ordinal 80>"), func() {
+	check.ThatPanicsAsExpected(t, check.ErrorWithValue("missing logger factory for level <ordinal 80>"), func() {
 		logger := l.L(80)
 		t.Log(logger)
 	})
 }
 
 func TestInitWithoutDefault(t *testing.T) {
-	check.ThatPanicsAsExpected(t, check.ErrorWithValue("Missing logger factory for level Trace; no default has been provided"), func() {
+	check.ThatPanicsAsExpected(t, check.ErrorWithValue("missing logger factory for level Trace; no default has been provided"), func() {
 		New(LoggerFactories{
 			Debug: nopFac,
 			Info:  nopFac,
@@ -186,7 +186,7 @@ func TestInitWithoutDefault(t *testing.T) {
 		})
 	})
 
-	check.ThatPanicsAsExpected(t, check.ErrorWithValue("Missing logger factory for level Error; no default has been provided"), func() {
+	check.ThatPanicsAsExpected(t, check.ErrorWithValue("missing logger factory for level Error; no default has been provided"), func() {
 		New(LoggerFactories{
 			Trace: nopFac,
 			Debug: nopFac,
@@ -208,7 +208,7 @@ func TestName(t *testing.T) {
 		{Info, "Info", nil},
 		{Warn, "Warn", nil},
 		{Error, "Error", nil},
-		{11, "<ordinal 11>", fmt.Errorf("No level for ordinal 11")},
+		{11, "<ordinal 11>", fmt.Errorf("no level for ordinal 11")},
 	}
 
 	for _, c := range cases {

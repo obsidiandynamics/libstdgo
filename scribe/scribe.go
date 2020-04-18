@@ -92,7 +92,7 @@ func (l Level) String() string {
 }
 
 func noLevelForOrdinal(level Level) (string, error) {
-	return fmt.Sprintf("<ordinal %d>", level), fmt.Errorf("No level for ordinal %d", level)
+	return fmt.Sprintf("<ordinal %d>", level), fmt.Errorf("no level for ordinal %d", level)
 }
 
 // LevelName gets the name of the given level, if one is known. An error is returned if the level is not among the
@@ -120,7 +120,7 @@ func ParseLevelName(name string) (LevelSpec, error) {
 			return spec, nil
 		}
 	}
-	return LevelSpec{}, fmt.Errorf("No level specification for name '%s'", name)
+	return LevelSpec{}, fmt.Errorf("no level specification for name '%s'", name)
 }
 
 // Fields is a free-form set of attributes that can be captured as part of a Scene, supporting
@@ -229,7 +229,7 @@ func New(facs LoggerFactories) Scribe {
 		}
 		if _, ok := expandedFacs[l.Level]; !ok {
 			if defFac == nil {
-				panic(fmt.Errorf("Missing logger factory for level %s; no default has been provided", l.Name))
+				panic(fmt.Errorf("missing logger factory for level %s; no default has been provided", l.Name))
 			}
 			expandedFacs[l.Level] = defFac
 		}
@@ -289,7 +289,7 @@ func (s *scribe) fac(level Level) LoggerFactory {
 	}
 
 	// An invalid level was supplied
-	panic(fmt.Errorf("Missing logger factory for level %s", level.String()))
+	panic(fmt.Errorf("missing logger factory for level %s", level.String()))
 }
 
 func (ss *sceneStub) L(level Level) Logger {

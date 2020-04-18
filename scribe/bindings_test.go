@@ -48,14 +48,14 @@ func TestAppendScene(t *testing.T) {
 		{
 			format: "%d %d",
 			args:   []interface{}{1, 2},
-			scene:  Scene{Err: check.ErrFault},
-			expect: "1 2 <Simulated>",
+			scene:  Scene{Err: check.ErrSimulated},
+			expect: "1 2 <simulated>",
 		},
 		{
 			format: "%d %d",
 			args:   []interface{}{1, 2},
-			scene:  Scene{Fields: Fields{"alpha": "bravo"}, Err: check.ErrFault},
-			expect: "1 2 <alpha:bravo> <Simulated>",
+			scene:  Scene{Fields: Fields{"alpha": "bravo"}, Err: check.ErrSimulated},
+			expect: "1 2 <alpha:bravo> <simulated>",
 		},
 	}
 
@@ -95,8 +95,8 @@ func TestShimFacs_withAppendScene(t *testing.T) {
 	shimmed := ShimFacs(facs, AppendScene())
 	assert.Len(t, shimmed, 1)
 
-	shimmed[Info](Info, Scene{Err: check.ErrFault})("one %d %d", 2, 3)
-	assert.Equal(t, "one 2 3 <Simulated>", captured)
+	shimmed[Info](Info, Scene{Err: check.ErrSimulated})("one %d %d", 2, 3)
+	assert.Equal(t, "one 2 3 <simulated>", captured)
 }
 
 func TestShimFac_mutateAllCallArgs(t *testing.T) {
@@ -112,7 +112,7 @@ func TestShimFac_mutateAllCallArgs(t *testing.T) {
 		}
 	}
 
-	substituteScene := Scene{Err: check.ErrFault}
+	substituteScene := Scene{Err: check.ErrSimulated}
 	shimmed := ShimFac(fac, func(level Level, scene *Scene, format *string, args *[]interface{}) {
 		*scene = substituteScene
 		*format = "tomarf"

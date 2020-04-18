@@ -61,7 +61,7 @@ func TestSceneLogging(t *testing.T) {
 	testScene := func(name, value string) Scene {
 		return Scene{
 			Fields: Fields{name: value},
-			Err:    check.ErrFault,
+			Err:    check.ErrSimulated,
 		}
 	}
 

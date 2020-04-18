@@ -89,12 +89,12 @@ func TestWithScene_fieldsAndError(t *testing.T) {
 	assert.NotContains(t, buffer.String(), "Err")
 	buffer.Reset()
 
-	s.Capture(scribe.Scene{Fields: scribe.Fields{"x": "y"}, Err: check.ErrFault}).
+	s.Capture(scribe.Scene{Fields: scribe.Fields{"x": "y"}, Err: check.ErrSimulated}).
 		I()("Charlie %d", 3)
 	assert.Contains(t, buffer.String(), "level=info")
 	assert.Contains(t, buffer.String(), "Charlie 3")
 	assert.Contains(t, buffer.String(), "x=y")
-	assert.NotContains(t, buffer.String(), "Error=\"Simulated\"")
+	assert.NotContains(t, buffer.String(), "Error=\"simulated\"")
 	buffer.Reset()
 }
 

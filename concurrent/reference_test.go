@@ -60,7 +60,7 @@ func TestAtomicReference_Stringer(t *testing.T) {
 		expectString string
 	}{
 		{[]interface{}{1}, "1"},
-		{[]interface{}{check.ErrFault}, "Simulated"},
+		{[]interface{}{check.ErrSimulated}, "simulated"},
 		{[]interface{}{}, "<nil>"},
 		{[]interface{}{nil}, "<nil>"},
 	}

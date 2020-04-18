@@ -146,7 +146,7 @@ func TestThatDoesNotPanic_withPanic(t *testing.T) {
 }
 
 func TestWait_optionalArgsTooLong(t *testing.T) {
-	ThatPanicsAsExpected(t, ErrorWithValue("Argument list too long"), func() {
+	ThatPanicsAsExpected(t, ErrorWithValue("argument list too long"), func() {
 		Wait(t, time.Microsecond, time.Millisecond, time.Second)
 	})
 }

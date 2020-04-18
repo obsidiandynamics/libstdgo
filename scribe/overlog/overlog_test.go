@@ -96,8 +96,8 @@ func TestLevel(t *testing.T) {
 func TestScene(t *testing.T) {
 	b := &bytes.Buffer{}
 	s := New(Scene(), b)
-	s.With(scribe.Info, scribe.Scene{Fields: scribe.Fields{"foo": "bar"}, Err: check.ErrFault})("irrelevant")
-	assert.Equal(t, "<foo:bar> <Simulated>\n", b.String())
+	s.With(scribe.Info, scribe.Scene{Fields: scribe.Fields{"foo": "bar"}, Err: check.ErrSimulated})("irrelevant")
+	assert.Equal(t, "<foo:bar> <simulated>\n", b.String())
 }
 
 func TestFormat(t *testing.T) {

@@ -14,7 +14,7 @@ func Listify(array interface{}) ([]interface{}, error) {
 	kind := reflect.TypeOf(array).Kind()
 
 	if kind != reflect.Array && kind != reflect.Slice {
-		return nil, fmt.Errorf("Unsupported type %T", array)
+		return nil, fmt.Errorf("unsupported type %T", array)
 	}
 
 	value := reflect.ValueOf(array)
@@ -54,8 +54,8 @@ func OptionalUntyped(offset int, limit int, def interface{}, args interface{}) i
 }
 
 const (
-	errLimitLessThanOne   = "Limit must be greater than 0"
-	errOffsetOutsideRange = "The limit-offset relationship must satisfy 0 <= offset < limit"
+	errLimitLessThanOne   = "limit must be greater than 0"
+	errOffsetOutsideRange = "limit-offset relationship must satisfy 0 <= offset < limit"
 )
 
 // Optional extracts the argument from args at the given offset if len(args) > offset, returning the specified default
@@ -72,7 +72,7 @@ func Optional(offset int, limit int, def interface{}, args ...interface{}) inter
 	length := len(args)
 	switch {
 	case length > limit:
-		panic(fmt.Errorf("Expected at most %d argument(s), got %d", limit, length))
+		panic(fmt.Errorf("expected at most %d argument(s), got %d", limit, length))
 	case offset < length:
 		return args[offset]
 	default:

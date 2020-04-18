@@ -53,7 +53,7 @@ func (pm PartsMap) Value(name string, def string) (string, error) {
 	case len(values) == 0:
 		return def, nil
 	default:
-		return values[0], fmt.Errorf("Too many arguments: expected one or none, got %d", len(values))
+		return values[0], fmt.Errorf("too many arguments: expected one or none, got %d", len(values))
 	}
 }
 

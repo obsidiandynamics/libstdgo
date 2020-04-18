@@ -94,7 +94,7 @@ func TestValue(t *testing.T) {
 	}
 
 	mapped := Parse([]string{"go", "--run", "^TestExample$", "--foo=bar", "-run=Another", "trail", "-verbose"}).Mappify()
-	assert.Equal(t, errors.New("Too many arguments: expected one or none, got 2"), withError(mapped.Value(FreeForm, "")))
+	assert.Equal(t, errors.New("too many arguments: expected one or none, got 2"), withError(mapped.Value(FreeForm, "")))
 	assert.Equal(t, "bar", withoutError(mapped.Value("foo", "")))
 	assert.Equal(t, "true", withoutError(mapped.Value("verbose", "false")))
 	assert.Equal(t, "some-default", withoutError(mapped.Value("missing", "some-default")))

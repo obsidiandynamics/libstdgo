@@ -18,7 +18,7 @@ func TestRepack(t *testing.T) {
 		{[]int{0, 1, 2}, []interface{}{0, 1, 2}, nil},
 		{[]int{}, []interface{}{}, nil},
 		{[][]int{{0, 1}, {2, 3}}, []interface{}{[]int{0, 1}, []int{2, 3}}, nil},
-		{4, nil, fmt.Errorf("Unsupported type int")},
+		{4, nil, fmt.Errorf("unsupported type int")},
 	}
 
 	for _, c := range cases {
@@ -41,7 +41,7 @@ func TestRepackOrPanic_success(t *testing.T) {
 }
 
 func TestRepackOrPanic_panic(t *testing.T) {
-	check.ThatPanicsAsExpected(t, check.ErrorWithValue("Unsupported type int"), func() {
+	check.ThatPanicsAsExpected(t, check.ErrorWithValue("unsupported type int"), func() {
 		ListifyOrPanic(0)
 	})
 }
@@ -58,7 +58,7 @@ func TestSoleUntyped_oneLength(t *testing.T) {
 
 func TestSoleUntyped_tooMany(t *testing.T) {
 	args := [...]rune{'b', 'c'}
-	check.ThatPanicsAsExpected(t, check.ErrorWithValue("Expected at most 1 argument(s), got 2"), func() {
+	check.ThatPanicsAsExpected(t, check.ErrorWithValue("expected at most 1 argument(s), got 2"), func() {
 		SoleUntyped('a', args)
 	})
 }

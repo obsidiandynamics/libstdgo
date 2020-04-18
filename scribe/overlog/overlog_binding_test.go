@@ -34,8 +34,8 @@ func TestLogLevels(t *testing.T) {
 		Fields: scribe.Fields{
 			"foo": "bar",
 		},
-		Err: check.ErrFault}).
+		Err: check.ErrSimulated}).
 		E()("Echo %d", 5)
-	assert.Contains(t, buffer.String(), "ERR Echo 5 <foo:bar> <Simulated>")
+	assert.Contains(t, buffer.String(), "ERR Echo 5 <foo:bar> <simulated>")
 	buffer.Reset()
 }
