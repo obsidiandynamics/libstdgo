@@ -15,8 +15,8 @@
   - `AtomicReference` an atomic reference that allows for `nil` pointers
   - `Deadline` - conditional running of tasks that are bound to a deadline
 * `scribe`: **logging façade that features logger mocking and assertions**, and comes with **ready-to-go bindings** for —
-  - The built-in `os.stdout` function
-  - The built-in `log.Printf` logger
+  - The built-in `os.Stdout` file handle
+  - The built-in `log` package
   - [Glog](https://github.com/golang/glog)
   - [Log15](https://github.com/inconshreveable/log15)
   - [Logrus](https://github.com/sirupsen/logrus)
