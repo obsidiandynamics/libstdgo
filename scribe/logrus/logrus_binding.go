@@ -43,37 +43,32 @@ func Bind(logger ...*lr.Logger) scribe.LoggerFactories {
 		scribe.Trace: func(level scribe.Level, scene scribe.Scene) scribe.Logger {
 			if l.IsLevelEnabled(logrus.TraceLevel) {
 				return enrich(l, scene).Tracef
-			} else {
-				return scribe.Nop
 			}
+			return scribe.Nop
 		},
 		scribe.Debug: func(level scribe.Level, scene scribe.Scene) scribe.Logger {
 			if l.IsLevelEnabled(logrus.DebugLevel) {
 				return enrich(l, scene).Debugf
-			} else {
-				return scribe.Nop
 			}
+			return scribe.Nop
 		},
 		scribe.Info: func(level scribe.Level, scene scribe.Scene) scribe.Logger {
 			if l.IsLevelEnabled(logrus.InfoLevel) {
 				return enrich(l, scene).Infof
-			} else {
-				return scribe.Nop
 			}
+			return scribe.Nop
 		},
 		scribe.Warn: func(level scribe.Level, scene scribe.Scene) scribe.Logger {
 			if l.IsLevelEnabled(logrus.WarnLevel) {
 				return enrich(l, scene).Warnf
-			} else {
-				return scribe.Nop
 			}
+			return scribe.Nop
 		},
 		scribe.Error: func(level scribe.Level, scene scribe.Scene) scribe.Logger {
 			if l.IsLevelEnabled(logrus.ErrorLevel) {
 				return enrich(l, scene).Errorf
-			} else {
-				return scribe.Nop
 			}
+			return scribe.Nop
 		},
 	}
 }

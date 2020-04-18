@@ -30,7 +30,7 @@ func None() Spec {
 	return Spec{Never(), nil}
 }
 
-// Builds a Fault instance from its Spec.
+// Build creates a Fault instance from its Spec.
 func (s Spec) Build() Fault {
 	if s.Cnt != nil {
 		return &fault{
@@ -38,10 +38,10 @@ func (s Spec) Build() Fault {
 			calls:  concurrent.NewAtomicCounter(),
 			faults: concurrent.NewAtomicCounter(),
 		}
-	} else {
-		// If zero value of Spec was provided.
-		return None().Build()
 	}
+
+	// If zero value of Spec was provided (where the contingency is nil).
+	return None().Build()
 }
 
 type fault struct {

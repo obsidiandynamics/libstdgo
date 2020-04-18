@@ -97,7 +97,6 @@ func isNarrowMatch(cmdArg string) bool {
 	last := cmdArg[length-1]
 	if first == '^' && last == '$' {
 		return !strings.ContainsAny(cmdArg, "|*")
-	} else {
-		return false
 	}
+	return false
 }
