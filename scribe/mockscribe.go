@@ -12,7 +12,7 @@ import (
 // MockScribe provides a facility for mocking a Scribe, capturing log calls for subsequent inspection, filtering and assertions.
 // This implementation is thread-safe.
 type MockScribe interface {
-	Loggers() LoggerFactories
+	Factories() LoggerFactories
 	Reset()
 	Entries() Entries
 	ContainsEntries() DynamicAssertion
@@ -66,7 +66,7 @@ type mockScribe struct {
 // NewMock creates a new MockScribe. The returning instance cannot be used to log directly — only to inspect and assert captures.
 // To configure a Scribe to use the mocks for subsequent logging:
 //  mock := scribe.NewMock()
-//	scribe := scribe.New(mock.Loggers())
+//	scribe := scribe.New(mock.Factories())
 func NewMock() MockScribe {
 	return &mockScribe{}
 }
@@ -75,8 +75,8 @@ func NewMock() MockScribe {
 Implemented methods.
 */
 
-// Loggers obtains the necessary LoggerFactories to configure Scribe.
-func (s *mockScribe) Loggers() LoggerFactories {
+// Factories obtains the necessary LoggerFactories to configure Scribe.
+func (s *mockScribe) Factories() LoggerFactories {
 	facs := LoggerFactories{}
 
 	for _, l := range Levels {

@@ -12,7 +12,7 @@ import (
 
 func TestBasicLogging(t *testing.T) {
 	m := NewMock()
-	l := New(m.Loggers())
+	l := New(m.Factories())
 	l.SetEnabled(All)
 
 	l.T()("Trace %d %d", 0, 1)
@@ -55,7 +55,7 @@ func TestBasicLogging(t *testing.T) {
 
 func TestSceneLogging(t *testing.T) {
 	m := NewMock()
-	l := New(m.Loggers())
+	l := New(m.Factories())
 	l.SetEnabled(All)
 
 	testScene := func(name, value string) Scene {
@@ -136,7 +136,7 @@ func TestCustomLevel(t *testing.T) {
 
 func TestDynamicAssertions(t *testing.T) {
 	m := NewMock()
-	l := New(m.Loggers())
+	l := New(m.Factories())
 
 	l.I()("Info %d %d", 4, 5)
 	l.W()("Warn %d %d", 5, 6)
@@ -166,7 +166,7 @@ func TestDynamicAssertions(t *testing.T) {
 
 func TestMultithreadedLogging(t *testing.T) {
 	m := NewMock()
-	l := New(m.Loggers())
+	l := New(m.Factories())
 	l.SetEnabled(All)
 
 	const routines = 100
@@ -197,7 +197,7 @@ func TestMultithreadedLogging(t *testing.T) {
 
 func TestRest(t *testing.T) {
 	m := NewMock()
-	l := New(m.Loggers())
+	l := New(m.Factories())
 	l.SetEnabled(All)
 
 	l.T()("Trace %d %d", 0, 1)
@@ -212,7 +212,7 @@ func TestRest(t *testing.T) {
 
 func TestAssertionFailures(t *testing.T) {
 	m := NewMock()
-	l := New(m.Loggers())
+	l := New(m.Factories())
 	l.SetEnabled(All)
 
 	l.T()("Trace %d %d", 0, 1)

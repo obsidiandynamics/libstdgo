@@ -37,7 +37,7 @@ func TestWatch_triggered(t *testing.T) {
 
 func TestPrint(t *testing.T) {
 	m := scribe.NewMock()
-	scr := scribe.New(m.Loggers())
+	scr := scribe.New(m.Factories())
 
 	w := Watch("op", time.Millisecond, Print(scr.W()))
 	defer w.End()
