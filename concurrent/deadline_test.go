@@ -43,12 +43,14 @@ func TestDeadline(t *testing.T) {
 		called = true
 	}
 	assert.Equal(t, zeroTime, d.Last())
-	assert.True(t, d.Lapsed())
+	assert.True(t, d.Expired())
+	assert.LessOrEqual(t, int(d.Remaining()), 0)
 
 	assert.True(t, d.TryRun(setter))
 	assert.True(t, called)
 	assert.NotEqual(t, zeroTime, d.Last())
-	assert.False(t, d.Lapsed())
+	assert.False(t, d.Expired())
+	assert.GreaterOrEqual(t, int(d.Remaining()), 0)
 
 	called = false
 	assert.False(t, d.TryRun(setter))
@@ -60,9 +62,9 @@ func TestDeadline(t *testing.T) {
 
 func TestDeadlineMove(t *testing.T) {
 	d := NewDeadline(1 * time.Hour)
-	assert.True(t, d.Lapsed())
+	assert.True(t, d.Expired())
 	d.Move(time.Now())
-	assert.False(t, d.Lapsed())
+	assert.False(t, d.Expired())
 
 	called := false
 	setter := func() {

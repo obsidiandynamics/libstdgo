@@ -35,9 +35,10 @@ func (t *timeCas) set(time time.Time) {
 type Deadline interface {
 	TryRun(f func()) bool
 	Elapsed() time.Duration
-	Lapsed() bool
+	Expired() bool
 	Move(new time.Time)
 	Last() time.Time
+	Remaining() time.Duration
 }
 
 type deadline struct {
@@ -75,12 +76,18 @@ func (d *deadline) Elapsed() time.Duration {
 	return time.Now().Sub(d.Last())
 }
 
-// Lapsed returns true if the deadline has lapsed.
-func (d *deadline) Lapsed() bool {
+// Expired returns true if the deadline has lapsed.
+func (d *deadline) Expired() bool {
 	return time.Now().Sub(d.Last()) > d.interval
 }
 
 // Move the timestamp of the last run to the new time.
 func (d *deadline) Move(new time.Time) {
 	d.lastRun.set(new)
+}
+
+// Remaining returns the duration to the upcoming expiry point. If the deadlines has already lapsed, the returned
+// value is negative.
+func (d *deadline) Remaining() time.Duration {
+	return d.interval - d.Elapsed()
 }
