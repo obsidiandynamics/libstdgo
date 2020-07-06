@@ -19,7 +19,7 @@ func StandardBinding() LoggerFactories {
 }
 
 // BindFmt creates a binding for the logger used by fmt. There are several issues with fmt:
-//   1. It's Printf has return values, making it incompatible with Scribe.
+//   1. Its Printf has return values, making it incompatible with Scribe.
 //   2. It does not add a newline.
 //
 // As a result of these limitations, this binding is implemented as a shim, rather than a function
